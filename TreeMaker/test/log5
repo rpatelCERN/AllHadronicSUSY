@@ -1,0 +1,1405 @@
+***** SETUP ************************************
+  dataSetName : /store/mc/Phys14DR/TTJets_MSDecaysCKM_central_Tune4C_13TeV-madgraph-tauola/MINIAODSIM/PU20bx25_PHYS14_25_V1-v1/00000/F452BBD7-BE76-E411-B1D7-002590DB928E.root
+ global_tag : 
+ runningOnMC : True
+ runningOnQCD : False
+ LostLepton(MC) : True
+     nJetsMin : 0
+        htMin : 0
+       mhtMin : 0
+       debug : False
+************************************************
+Running on MC: removing HLT selection
+---------------------------------------------------------------
+TTJets_MSDecaysCKM_central_Tune4C_13TeV_PU50x25_V5_v2 : '/store/mc/Phys14DR/TTJets_MSDecaysCKM_central_Tune4C_13TeV-madgraph-tauola/MINIAODSIM/PU20bx25_PHYS14_25_V1-v1/00000/F452BBD7-BE76-E411-B1D7-002590DB928E.root'
+Setup WeightProducer for '/store/mc/Phys14DR/TTJets_MSDecaysCKM_central_Tune4C_13TeV-madgraph-tauola/MINIAODSIM/PU20bx25_PHYS14_25_V1-v1/00000/F452BBD7-BE76-E411-B1D7-002590DB928E.root'
+cms.int32(0)
+%MSG-i ParameterSet:  (NoModuleName) 09-Jan-2015 12:48:14 CET pre-events
+Warning: You have added a new tracked parameter
+'jetDeltaRMax' to a previously registered parameter set.
+This is a bad idea because the new parameter(s) will not be recorded.
+Use the forthcoming ParameterSetDescription facility instead.
+A warning is given only for the first such parameter in a pset.
+
+%MSG
+%MSG-i SiPixelQualityESProducer::SiPixelQualityESProducer:  (NoModuleName)  09-Jan-2015 12:48:14 CET pre-events
+
+%MSG
+%MSG-i SiStripBackPlaneCorrectionDepESProducer:  (NoModuleName)  09-Jan-2015 12:48:14 CET pre-events
+ctor
+%MSG
+%MSG-i SiStripLorentzAngleDepESProducer:  (NoModuleName)  09-Jan-2015 12:48:14 CET pre-events
+ctor
+%MSG
+%MSG-i SiStripQualityESProducer:  (NoModuleName) 09-Jan-2015 12:48:14 CET  pre-events
+ctor
+%MSG
+%MSG-i SiStripDetInfoFileReader:  (NoModuleName) 09-Jan-2015 12:48:14 CET  pre-events
+filePath /cvmfs/cms.cern.ch/slc6_amd64_gcc481/cms/cmssw-patch/CMSSW_7_2_3_patch1/src/CalibTracker/SiStripCommon/data/SiStripDetInfo.dat
+%MSG
+%MSG-i SiStripDetInfoFileReader::SiStripDetInfoFileReader - END of file reached:  (NoModuleName) 09-Jan-2015 12:48:14 CET pre-events
+
+%MSG
+%MSG-i HCAL:  (NoModuleName) 09-Jan-2015 12:48:14 CET pre-events
+HcalHardcodeCalibrations::HcalHardcodeCalibrations->...
+%MSG
+09-Jan-2015 12:48:14 CET  Initiating request to open file root://eoscms//eos/cms/store/mc/Phys14DR/TTJets_MSDecaysCKM_central_Tune4C_13TeV-madgraph-tauola/MINIAODSIM/PU20bx25_PHYS14_25_V1-v1/00000/F452BBD7-BE76-E411-B1D7-002590DB928E.root?svcClass=default
+%MSG-i XrdFileInfo:  file_open 09-Jan-2015 12:48:15 CET pre-events
+Opened root://eoscms//eos/cms/store/mc/Phys14DR/TTJets_MSDecaysCKM_central_Tune4C_13TeV-madgraph-tauola/MINIAODSIM/PU20bx25_PHYS14_25_V1-v1/00000/F452BBD7-BE76-E411-B1D7-002590DB928E.root?svcClass=default
+%MSG
+09-Jan-2015 12:48:15 CET  Successfully opened file root://eoscms//eos/cms/store/mc/Phys14DR/TTJets_MSDecaysCKM_central_Tune4C_13TeV-madgraph-tauola/MINIAODSIM/PU20bx25_PHYS14_25_V1-v1/00000/F452BBD7-BE76-E411-B1D7-002590DB928E.root?svcClass=default
+%MSG-i Root_Information:  AfterFile TClass::TClass() 09-Jan-2015 12:48:17 CET  pre-events
+no dictionary for class pair<edm::IndexIntoFile::IndexRunKey,Long64_t> is available
+%MSG
+WeightProducer: Using constant event weight of 0.160883
+  Target luminosity (1/pb) : 5000
+        Cross section (pb) : 818.8
+          Number of events : 2.5447e+07
+%MSG-i path:  AfterModConstruction 09-Jan-2015 12:48:19 CET pre-events
+The following module labels are not assigned to any path:
+'CountIsoTracks','IsolatedTracksPT10','IsolatedTracksPT10IsoCut08','IsolatedTracksPT10IsoCut12','countPatElectrons','countPatMuons','dump','hltHighLevel','slimmedJetsPFCombinedSecondaryVertexBJetTags','slimmedJetsPFImpactParameterTagInfos','slimmedJetsPFJetTracksAssociatorAtVertex','slimmedJetsPFSecondaryVertexTagInfos'
+
+%MSG
+%MSG-i EventSetupDependency:  AfterSource 09-Jan-2015 12:48:19 CET BeforeEvents
+The EventSetup record HcalDbRecord depends on at least one Record 
+ (HcalGainsRcd, HcalPFCorrsRcd, HcalQIEDataRcd, HcalLUTCorrsRcd, HcalPedestalsRcd, HcalRespCorrsRcd, HcalTimeCorrsRcd, HcalLutMetadataRcd, HcalZSThresholdsRcd, IdealGeometryRecord, HcalChannelQualityRcd, HcalElectronicsMapRcd, HcalPedestalWidthsRcd, HcalL1TriggerObjectsRcd) which is not present in the job.
+ This may lead to an exception begin thrown during event processing.
+ If no exception occurs during the job than it is usually safe to ignore this message.
+%MSG
+%MSG-i HCAL:  AfterSource 09-Jan-2015 12:48:19 CET BeforeEvents
+HcalHardcodeCalibrations::setIntervalFor-> key: HcalGainWidthsRcd time: run: 1 lumi: 0 event: 0/1
+%MSG
+Begin processing the 1st record. Run 1, Event 99707101, LumiSection 997072 at 09-Jan-2015 12:48:21.265 CET
+%MSG-i Root_Information:  PreProcPath WriteTree TClass::TClass()  09-Jan-2015 12:48:21 CET Run: 1 Event: 99707101
+no dictionary for class pair<reco::isodeposit::Direction::Distance,float> is available
+%MSG
+%MSG-i GetByLabelWithoutRegistration:  WeightProducer:WeightProducer  09-Jan-2015 12:48:21 CET Run: 1 Event: 99707101
+::getByLabel without corresponding call to consumes or mayConsumes for this module.
+  type: std::vector<PileupSummaryInfo>
+  module label: addPileupInfo
+  product instance name: ''
+  process name: ''
+
+%MSG
+%MSG-i GetByLabelWithoutRegistration:  TrackIsolationFilter:IsolatedTracks  09-Jan-2015 12:48:21 CET Run: 1 Event: 99707101
+::getByLabel without corresponding call to consumes or mayConsumes for this module.
+ type: edm::Veiw<pat::PackedCandidate>
+  module label: packedPFCandidates
+  product instance name: ''
+  process name: ''
+
+%MSG
+%MSG-i GetByLabelWithoutRegistration:  SubJetSelection:HTJets  09-Jan-2015 12:48:21 CET Run: 1 Event: 99707101
+::getByLabel without corresponding call to consumes or mayConsumes for this module.
+ type: edm::Veiw<pat::Jet>
+  module label: slimmedJets
+  product instance name: ''
+  process name: ''
+
+%MSG
+%MSG-i GetByLabelWithoutRegistration:  HTDouble:HT 09-Jan-2015 12:48:21 CET  Run: 1 Event: 99707101
+::getByLabel without corresponding call to consumes or mayConsumes for this module.
+ type: edm::Veiw<pat::Jet>
+  module label: HTJets
+  product instance name: ''
+  process name: ''
+
+%MSG
+%MSG-i GetByLabelWithoutRegistration:  NJetInt:NJets 09-Jan-2015 12:48:21 CET  Run: 1 Event: 99707101
+::getByLabel without corresponding call to consumes or mayConsumes for this module.
+ type: edm::Veiw<reco::Candidate>
+  module label: HTJets
+  product instance name: ''
+  process name: ''
+
+%MSG
+%MSG-i GetByLabelWithoutRegistration:  BTagInt:BTags 09-Jan-2015 12:48:21 CET  Run: 1 Event: 99707101
+::getByLabel without corresponding call to consumes or mayConsumes for this module.
+ type: edm::Veiw<pat::Jet>
+  module label: HTJets
+  product instance name: ''
+  process name: ''
+
+%MSG
+%MSG-i GetByLabelWithoutRegistration:  SubJetSelection:MHTJets  09-Jan-2015 12:48:21 CET Run: 1 Event: 99707101
+::getByLabel without corresponding call to consumes or mayConsumes for this module.
+ type: edm::Veiw<pat::Jet>
+  module label: slimmedJets
+  product instance name: ''
+  process name: ''
+
+%MSG
+%MSG-i GetByLabelWithoutRegistration:  JetProperties:MHTJetsProperties  09-Jan-2015 12:48:21 CET Run: 1 Event: 99707101
+::getByLabel without corresponding call to consumes or mayConsumes for this module.
+ type: edm::Veiw<pat::Jet>
+  module label: MHTJets
+  product instance name: ''
+  process name: ''
+
+%MSG
+Delta Phi N 1.61392
+Delta Phi N nan
+Delta Phi N 2.34755
+%MSG-i GetByLabelWithoutRegistration:  MhtDouble:MHT 09-Jan-2015 12:48:21 CET  Run: 1 Event: 99707101
+::getByLabel without corresponding call to consumes or mayConsumes for this module.
+ type: edm::Veiw<pat::Jet>
+  module label: MHTJets
+  product instance name: ''
+  process name: ''
+
+%MSG
+----- Begin Fatal Exception 09-Jan-2015 12:48:21 CET-----------------------
+An exception of category 'InsertFailure' occurred while
+   [0] Processing run: 1 lumi: 997072 event: 99707101
+   [1] Running path 'WriteTree'
+   [2] Calling event method for module MhtDouble/'MHT'
+Exception Message:
+Illegal attempt to 'put' an unregistered product.
+No product is registered for
+  process name:                'RA2EventSelection'
+  module label:                'MHT'
+  product friendly class name: 'double'
+  product instance name:       'MHT'
+The ProductRegistry contains:
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = reducedEgamma
+Branch ID = 4266226245
+Class Name = edm::SortedCollection<EcalRecHit,edm::StrictWeakOrdering<EcalRecHit> >
+Friendly Class Name = EcalRecHitsSorted
+Product Instance Name = reducedEBRecHits
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = reducedEgamma
+Branch ID = 2201646109
+Class Name = edm::SortedCollection<EcalRecHit,edm::StrictWeakOrdering<EcalRecHit> >
+Friendly Class Name = EcalRecHitsSorted
+Product Instance Name = reducedEERecHits
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = reducedEgamma
+Branch ID = 2547518746
+Class Name = edm::SortedCollection<EcalRecHit,edm::StrictWeakOrdering<EcalRecHit> >
+Friendly Class Name = EcalRecHitsSorted
+Product Instance Name = reducedESRecHits
+
+-----
+Branch Type = Event
+Process Name = SIM
+ModuleLabel = generator
+Branch ID = 1971320715
+Class Name = GenEventInfoProduct
+Friendly Class Name = GenEventInfoProduct
+Product Instance Name = 
+
+-----
+Branch Type = LuminosityBlock
+Process Name = HLT
+ModuleLabel = genFilterEfficiencyProducer
+Branch ID = 4203801907
+Class Name = GenFilterInfo
+Friendly Class Name = GenFilterInfo
+Product Instance Name = 
+
+-----
+Branch Type = LuminosityBlock
+Process Name = SIM
+ModuleLabel = genFilterEfficiencyProducer
+Branch ID = 3762509406
+Class Name = GenFilterInfo
+Friendly Class Name = GenFilterInfo
+Product Instance Name = 
+
+-----
+Branch Type = Run
+Process Name = SIM
+ModuleLabel = generator
+Branch ID = 2810686321
+Class Name = GenRunInfoProduct
+Friendly Class Name = GenRunInfoProduct
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = hcalnoise
+Branch ID = 2037070177
+Class Name = HcalNoiseSummary
+Friendly Class Name = HcalNoiseSummary
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = gtDigis
+Branch ID = 2424502713
+Class Name = L1GlobalTriggerReadoutRecord
+Friendly Class Name = L1GlobalTriggerReadoutRecord
+Product Instance Name = 
+
+-----
+Branch Type = Run
+Process Name = RECO
+ModuleLabel = l1GtTriggerMenuLite
+Branch ID = 2768693445
+Class Name = L1GtTriggerMenuLite
+Friendly Class Name = L1GtTriggerMenuLite
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = LHE
+ModuleLabel = externalLHEProducer
+Branch ID = 94324993
+Class Name = LHEEventProduct
+Friendly Class Name = LHEEventProduct
+Product Instance Name = 
+
+-----
+Branch Type = Run
+Process Name = LHE
+ModuleLabel = externalLHEProducer
+Branch ID = 1994267056
+Class Name = LHERunInfoProduct
+Friendly Class Name = LHERunInfoProduct
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = HLT
+ModuleLabel = addPileupInfo
+Branch ID = 1609958762
+Class Name = std::vector<PileupSummaryInfo>
+Friendly Class Name = PileupSummaryInfos
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = DeltaPhi
+Branch ID = 1442357401
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = DeltaPhi1
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = DeltaPhi
+Branch ID = 4199673171
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = DeltaPhi2
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = DeltaPhi
+Branch ID = 2671171093
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = DeltaPhi3
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = DeltaPhi
+Branch ID = 2595512756
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = DeltaPhiMET1
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = DeltaPhi
+Branch ID = 891104382
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = DeltaPhiMET2
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = DeltaPhi
+Branch ID = 1350178616
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = DeltaPhiMET3
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = DeltaPhi
+Branch ID = 2797050284
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = DeltaPhiMinMHt
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = DeltaPhi
+Branch ID = 2578330151
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = DeltaPhiMinMet
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = HT
+Branch ID = 3060541673
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = HT
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = HT
+Branch ID = 238542211
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = HT30
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = HT
+Branch ID = 4161460293
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = HT50
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = HT
+Branch ID = 958893659
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = genHT
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MET
+Branch ID = 2071969048
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = MET
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MET
+Branch ID = 2241172420
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = genMET
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MET
+Branch ID = 1349291392
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = genmetE
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MET
+Branch ID = 2749860604
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = genmetEt
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MET
+Branch ID = 849425348
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = genmetPhi
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MET
+Branch ID = 3160827623
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = mEtSig
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MET
+Branch ID = 1350518672
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = metEnergy
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MET
+Branch ID = 4260035876
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = metPhi
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MET
+Branch ID = 3177486612
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = metSumEt
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHT
+Branch ID = 2939393516
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 3192406308
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = DeltaPhiN1
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 299961582
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = DeltaPhiN2
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 1954953128
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = DeltaPhiN3
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 4149110548
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = minDeltaPhiN
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = WeightProducer
+Branch ID = 16870653
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = weight
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = fixedGridRhoAll
+Branch ID = 1888816577
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = fixedGridRhoFastjetAll
+Branch ID = 3668620658
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = fixedGridRhoFastjetAllCalo
+Branch ID = 2805029244
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = fixedGridRhoFastjetCentralCalo
+Branch ID = 3306329620
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = fixedGridRhoFastjetCentralChargedPileUp
+Branch ID = 3023439177
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = fixedGridRhoFastjetCentralNeutral
+Branch ID = 2381880610
+Class Name = double
+Friendly Class Name = double
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 3715800670
+Class Name = std::vector<double>
+Friendly Class Name = doubles
+Product Instance Name = CorrFactor
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 2020602012
+Class Name = std::vector<double>
+Friendly Class Name = doubles
+Product Instance Name = bDiscriminator
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 2235784425
+Class Name = std::vector<double>
+Friendly Class Name = doubles
+Product Instance Name = chargedEmEnergyFraction
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 1448333225
+Class Name = std::vector<double>
+Friendly Class Name = doubles
+Product Instance Name = chargedHadronEnergyFraction
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 2131414589
+Class Name = std::vector<double>
+Friendly Class Name = doubles
+Product Instance Name = genEmE
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 4280547521
+Class Name = std::vector<double>
+Friendly Class Name = doubles
+Product Instance Name = genHadE
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 401217988
+Class Name = std::vector<double>
+Friendly Class Name = doubles
+Product Instance Name = genInvE
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 3545242759
+Class Name = std::vector<double>
+Friendly Class Name = doubles
+Product Instance Name = jetArea
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 592366455
+Class Name = std::vector<double>
+Friendly Class Name = doubles
+Product Instance Name = muonEnergyFraction
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 840948899
+Class Name = std::vector<double>
+Friendly Class Name = doubles
+Product Instance Name = neutralEmEnergyFraction
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 12867591
+Class Name = std::vector<double>
+Friendly Class Name = doubles
+Product Instance Name = neutralHadronEnergyFraction
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 3168027644
+Class Name = std::vector<double>
+Friendly Class Name = doubles
+Product Instance Name = photonEnergyFraction
+
+-----
+Branch Type = Event
+Process Name = HLT
+ModuleLabel = TriggerResults
+Branch ID = 3778273250
+Class Name = edm::TriggerResults
+Friendly Class Name = edmTriggerResults
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = TriggerResults
+Branch ID = 2084975553
+Class Name = edm::TriggerResults
+Friendly Class Name = edmTriggerResults
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = TriggerResults
+Branch ID = 3635338204
+Class Name = edm::TriggerResults
+Friendly Class Name = edmTriggerResults
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = IsolatedTracks
+Branch ID = 355299975
+Class Name = std::vector<float>
+Friendly Class Name = floats
+Product Instance Name = pfcandsdzpv
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = IsolatedTracks
+Branch ID = 2818375144
+Class Name = std::vector<float>
+Friendly Class Name = floats
+Product Instance Name = pfcandspt
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = IsolatedTracks
+Branch ID = 2884502372
+Class Name = std::vector<float>
+Friendly Class Name = floats
+Product Instance Name = pfcandstrkiso
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = BTags
+Branch ID = 3542401509
+Class Name = int
+Friendly Class Name = int
+Product Instance Name = BTags
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = BTags
+Branch ID = 3834523269
+Class Name = int
+Friendly Class Name = int
+Product Instance Name = BTags20
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = BTags
+Branch ID = 2069146907
+Class Name = int
+Friendly Class Name = int
+Product Instance Name = BTags30
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = BTags
+Branch ID = 2372511965
+Class Name = int
+Friendly Class Name = int
+Product Instance Name = BTags50
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = HT
+Branch ID = 20005975
+Class Name = int
+Friendly Class Name = int
+Product Instance Name = genJetMatch
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = Leptons
+Branch ID = 1517223500
+Class Name = int
+Friendly Class Name = int
+Product Instance Name = Electrons
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = Leptons
+Branch ID = 1319615676
+Class Name = int
+Friendly Class Name = int
+Product Instance Name = Leptons
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = Leptons
+Branch ID = 1991591702
+Class Name = int
+Friendly Class Name = int
+Product Instance Name = Muons
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = NJets
+Branch ID = 1942138854
+Class Name = int
+Friendly Class Name = int
+Product Instance Name = NJets
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = NJets
+Branch ID = 1705611775
+Class Name = int
+Friendly Class Name = int
+Product Instance Name = NJets20
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = NJets
+Branch ID = 4201845345
+Class Name = int
+Friendly Class Name = int
+Product Instance Name = NJets30
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = NJets
+Branch ID = 206444455
+Class Name = int
+Friendly Class Name = int
+Product Instance Name = NJets50
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = NVtx
+Branch ID = 785664411
+Class Name = int
+Friendly Class Name = int
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = GenLeptons
+Branch ID = 2360696215
+Class Name = std::vector<int>
+Friendly Class Name = ints
+Product Instance Name = BosonPDGId
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = GenLeptons
+Branch ID = 1502546075
+Class Name = std::vector<int>
+Friendly Class Name = ints
+Product Instance Name = ElectronTauDecay
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = GenLeptons
+Branch ID = 1435835012
+Class Name = std::vector<int>
+Friendly Class Name = ints
+Product Instance Name = MuonTauDecay
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = GenLeptons
+Branch ID = 1692167580
+Class Name = std::vector<int>
+Friendly Class Name = ints
+Product Instance Name = TauHadronic
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = IsolatedTracks
+Branch ID = 3826748775
+Class Name = std::vector<int>
+Friendly Class Name = ints
+Product Instance Name = pfcandschg
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 1493318383
+Class Name = std::vector<int>
+Friendly Class Name = ints
+Product Instance Name = chargedHadronMultiplicity
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 1558957914
+Class Name = std::vector<int>
+Friendly Class Name = ints
+Product Instance Name = electronMultiplicity
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 3975035029
+Class Name = std::vector<int>
+Friendly Class Name = ints
+Product Instance Name = flavour
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 3864941862
+Class Name = std::vector<int>
+Friendly Class Name = ints
+Product Instance Name = genMatch
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 147275995
+Class Name = std::vector<int>
+Friendly Class Name = ints
+Product Instance Name = isGood
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 1719719296
+Class Name = std::vector<int>
+Friendly Class Name = ints
+Product Instance Name = muonMultiplicity
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 3190597916
+Class Name = std::vector<int>
+Friendly Class Name = ints
+Product Instance Name = neutralHadronMultiplicity
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJetsProperties
+Branch ID = 3360079701
+Class Name = std::vector<int>
+Friendly Class Name = ints
+Product Instance Name = photonMultiplicity
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = l1extraParticles
+Branch ID = 2800287757
+Class Name = std::vector<l1extra::L1EmParticle>
+Friendly Class Name = l1extraL1EmParticles
+Product Instance Name = Isolated
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = l1extraParticles
+Branch ID = 3030326182
+Class Name = std::vector<l1extra::L1EmParticle>
+Friendly Class Name = l1extraL1EmParticles
+Product Instance Name = NonIsolated
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = l1extraParticles
+Branch ID = 1983770461
+Class Name = std::vector<l1extra::L1EtMissParticle>
+Friendly Class Name = l1extraL1EtMissParticles
+Product Instance Name = MET
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = l1extraParticles
+Branch ID = 3979934348
+Class Name = std::vector<l1extra::L1EtMissParticle>
+Friendly Class Name = l1extraL1EtMissParticles
+Product Instance Name = MHT
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = l1extraParticles
+Branch ID = 937566116
+Class Name = std::vector<l1extra::L1HFRings>
+Friendly Class Name = l1extraL1HFRingss
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = l1extraParticles
+Branch ID = 1972303626
+Class Name = std::vector<l1extra::L1JetParticle>
+Friendly Class Name = l1extraL1JetParticles
+Product Instance Name = Central
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = l1extraParticles
+Branch ID = 2581284716
+Class Name = std::vector<l1extra::L1JetParticle>
+Friendly Class Name = l1extraL1JetParticles
+Product Instance Name = Forward
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = l1extraParticles
+Branch ID = 1824757270
+Class Name = std::vector<l1extra::L1JetParticle>
+Friendly Class Name = l1extraL1JetParticles
+Product Instance Name = Tau
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = l1extraParticles
+Branch ID = 2097733092
+Class Name = std::vector<l1extra::L1MuonParticle>
+Friendly Class Name = l1extraL1MuonParticles
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = slimmedElectrons
+Branch ID = 2608992915
+Class Name = std::vector<pat::Electron>
+Friendly Class Name = patElectrons
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = HTJets
+Branch ID = 52685325
+Class Name = std::vector<pat::Jet>
+Friendly Class Name = patJets
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = MHTJets
+Branch ID = 2668508778
+Class Name = std::vector<pat::Jet>
+Friendly Class Name = patJets
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = slimmedJets
+Branch ID = 1148725398
+Class Name = std::vector<pat::Jet>
+Friendly Class Name = patJets
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = slimmedJetsAK8
+Branch ID = 2537756989
+Class Name = std::vector<pat::Jet>
+Friendly Class Name = patJets
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = slimmedMETs
+Branch ID = 902731913
+Class Name = std::vector<pat::MET>
+Friendly Class Name = patMETs
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = slimmedMuons
+Branch ID = 2039612152
+Class Name = std::vector<pat::Muon>
+Friendly Class Name = patMuons
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = IsolatedTracks
+Branch ID = 2886790960
+Class Name = std::vector<pat::PackedCandidate>
+Friendly Class Name = patPackedCandidates
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = lostTracks
+Branch ID = 3525422632
+Class Name = std::vector<pat::PackedCandidate>
+Friendly Class Name = patPackedCandidates
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = packedPFCandidates
+Branch ID = 1149556851
+Class Name = std::vector<pat::PackedCandidate>
+Friendly Class Name = patPackedCandidates
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = packedGenParticles
+Branch ID = 1065366993
+Class Name = std::vector<pat::PackedGenParticle>
+Friendly Class Name = patPackedGenParticles
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = patTrigger
+Branch ID = 1765059585
+Class Name = pat::PackedTriggerPrescales
+Friendly Class Name = patPackedTriggerPrescales
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = slimmedPhotons
+Branch ID = 823444344
+Class Name = std::vector<pat::Photon>
+Friendly Class Name = patPhotons
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = slimmedTaus
+Branch ID = 4186095971
+Class Name = std::vector<pat::Tau>
+Friendly Class Name = patTaus
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = selectedPatTrigger
+Branch ID = 803492778
+Class Name = std::vector<pat::TriggerObjectStandAlone>
+Friendly Class Name = patTriggerObjectStandAlones
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RECO
+ModuleLabel = offlineBeamSpot
+Branch ID = 1112442774
+Class Name = reco::BeamSpot
+Friendly Class Name = recoBeamSpot
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = caTopTagInfos
+Branch ID = 2152603617
+Class Name = std::vector<reco::CATopJetTagInfo>
+Friendly Class Name = recoCATopJetTagInfos
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = reducedEgamma
+Branch ID = 1339708744
+Class Name = std::vector<reco::CaloCluster>
+Friendly Class Name = recoCaloClusters
+Product Instance Name = reducedEBEEClusters
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = reducedEgamma
+Branch ID = 904618217
+Class Name = std::vector<reco::CaloCluster>
+Friendly Class Name = recoCaloClusters
+Product Instance Name = reducedESClusters
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = selectedIDElectrons
+Branch ID = 3459149393
+Class Name = edm::PtrVector<reco::Candidate>
+Friendly Class Name = recoCandidateedmPtrVector
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = selectedIDIsoElectrons
+Branch ID = 1584669234
+Class Name = edm::PtrVector<reco::Candidate>
+Friendly Class Name = recoCandidateedmPtrVector
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = selectedIDIsoMuons
+Branch ID = 483371235
+Class Name = edm::PtrVector<reco::Candidate>
+Friendly Class Name = recoCandidateedmPtrVector
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = selectedIDMuons
+Branch ID = 1037890992
+Class Name = edm::PtrVector<reco::Candidate>
+Friendly Class Name = recoCandidateedmPtrVector
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = reducedEgamma
+Branch ID = 849204112
+Class Name = std::vector<reco::Conversion>
+Friendly Class Name = recoConversions
+Product Instance Name = reducedConversions
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = reducedEgamma
+Branch ID = 2889603569
+Class Name = std::vector<reco::Conversion>
+Friendly Class Name = recoConversions
+Product Instance Name = reducedSingleLegConversions
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = slimmedGenJets
+Branch ID = 3761972704
+Class Name = std::vector<reco::GenJet>
+Friendly Class Name = recoGenJets
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = GenLeptons
+Branch ID = 2724078818
+Class Name = std::vector<reco::GenParticle>
+Friendly Class Name = recoGenParticles
+Product Instance Name = Boson
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = GenLeptons
+Branch ID = 2402990484
+Class Name = std::vector<reco::GenParticle>
+Friendly Class Name = recoGenParticles
+Product Instance Name = Electron
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = GenLeptons
+Branch ID = 227078033
+Class Name = std::vector<reco::GenParticle>
+Friendly Class Name = recoGenParticles
+Product Instance Name = Muon
+
+-----
+Branch Type = Event
+Process Name = RA2EventSelection
+ModuleLabel = GenLeptons
+Branch ID = 1768333275
+Class Name = std::vector<reco::GenParticle>
+Friendly Class Name = recoGenParticles
+Product Instance Name = Tau
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = prunedGenParticles
+Branch ID = 328118710
+Class Name = std::vector<reco::GenParticle>
+Friendly Class Name = recoGenParticles
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = reducedEgamma
+Branch ID = 3633814711
+Class Name = std::vector<reco::GsfElectronCore>
+Friendly Class Name = recoGsfElectronCores
+Product Instance Name = reducedGedGsfElectronCores
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = reducedEgamma
+Branch ID = 316056120
+Class Name = std::vector<reco::PhotonCore>
+Friendly Class Name = recoPhotonCores
+Product Instance Name = reducedGedPhotonCores
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = reducedEgamma
+Branch ID = 2726989090
+Class Name = std::vector<reco::SuperCluster>
+Friendly Class Name = recoSuperClusters
+Product Instance Name = reducedSuperClusters
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = slimmedSecondaryVertices
+Branch ID = 707688581
+Class Name = std::vector<reco::VertexCompositePtrCandidate>
+Friendly Class Name = recoVertexCompositePtrCandidates
+Product Instance Name = 
+
+-----
+Branch Type = Event
+Process Name = PAT
+ModuleLabel = offlineSlimmedPrimaryVertices
+Branch ID = 2190359633
+Class Name = std::vector<reco::Vertex>
+Friendly Class Name = recoVertexs
+Product Instance Name = 
+
+-----
+
+----- End Fatal Exception -------------------------------------------------
+%MSG-i XrdFileInfo:  file_close 09-Jan-2015 12:48:21 CET PostEndRun
+Closed root://eoscms//eos/cms/store/mc/Phys14DR/TTJets_MSDecaysCKM_central_Tune4C_13TeV-madgraph-tauola/MINIAODSIM/PU20bx25_PHYS14_25_V1-v1/00000/F452BBD7-BE76-E411-B1D7-002590DB928E.root?svcClass=default
+%MSG
+09-Jan-2015 12:48:21 CET  Closed file root://eoscms//eos/cms/store/mc/Phys14DR/TTJets_MSDecaysCKM_central_Tune4C_13TeV-madgraph-tauola/MINIAODSIM/PU20bx25_PHYS14_25_V1-v1/00000/F452BBD7-BE76-E411-B1D7-002590DB928E.root?svcClass=default
+
+
+=============================================
+
+MessageLogger Summary
+
+ type     category        sev    module        subroutine        count    total
+ ---- -------------------- -- ---------------- ----------------  -----    -----
+    1 Fatal Exception      -s PostProcessPath                        1        1
+    2 fileAction           -s file_close                             1        1
+    3 fileAction           -s file_open                              2        2
+
+ type    category    Examples: run/evt        run/evt          run/evt
+ ---- -------------------- ---------------- ---------------- ----------------
+    1 Fatal Exception      1/99707101                        
+    2 fileAction           PostEndRun                        
+    3 fileAction           pre-events       pre-events       
+
+Severity    # Occurrences   Total Occurrences
+--------    -------------   -----------------
+System                  4                   4
