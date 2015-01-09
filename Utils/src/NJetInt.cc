@@ -29,7 +29,7 @@
 #include "FWCore/Framework/interface/MakerMacros.h"
 
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
-#include "DataFormats/JetReco/interface/Jet.h"
+#include "DataFormats/PatCandidates/interface/Jet.h"
 #include "DataFormats/PatCandidates/interface/MET.h"
 
 //
@@ -52,6 +52,8 @@ private:
 	virtual void endRun(edm::Run&, edm::EventSetup const&);
 	virtual void beginLuminosityBlock(edm::LuminosityBlock&, edm::EventSetup const&);
 	virtual void endLuminosityBlock(edm::LuminosityBlock&, edm::EventSetup const&);
+    bool GoodJets(unsigned int i, edm::Handle< edm::View<pat::Jet> > Jets );
+
 	edm::InputTag JetTag_;
 	
 	
@@ -115,13 +117,15 @@ NJetInt::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 	int NJets50=0;
 	int NJets30=0;
 	int NJets20=0;
-	edm::Handle< edm::View<reco::Candidate> > Jets;
+	edm::Handle< edm::View<pat::Jet> > Jets;
 	iEvent.getByLabel(JetTag_,Jets);
 	if( Jets.isValid() ) {
 		
 		NJets=Jets->size();
 		for(int j=0; j<NJets; ++j){
-		if(Jets->at(j).pt()<20)continue;
+            bool isGood=GoodJets(j, Jets);
+            if(!isGood)continue;
+		if(Jets->at(j).pt()<20 )continue;
 		++NJets20;
 		if(Jets->at(j).pt()<30)continue;
 		++NJets30;
@@ -142,6 +146,24 @@ NJetInt::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 
 	std::auto_ptr<int> htp3(new int(NJets50));
         iEvent.put(htp3,"NJets50");
+}
+
+bool NJetInt::GoodJets(unsigned int i, edm::Handle< edm::View<pat::Jet> > Jets ){
+    bool isGood=false;
+    if( Jets.isValid() ) {
+        //   float pt=Jets->at(i).pt();
+        float eta=Jets->at(i).eta();
+        float neufrac=Jets->at(i).neutralHadronEnergyFraction();//gives raw energy in the denominator
+        float phofrac=Jets->at(i).neutralEmEnergyFraction();//gives raw energy in the denominator
+        float chgfrac=Jets->at(i).chargedHadronEnergyFraction();
+        float chgEMfrac=Jets->at(i).chargedEmEnergyFraction();
+        
+        // int nconstit=Jets->at(i).getPFConstituents().size();
+        int chgmulti=Jets->at(i).chargedHadronMultiplicity();
+        if( fabs(eta)<2.4 && neufrac<0.99 && phofrac<0.99 &&chgmulti>0 && chgfrac>0 && chgEMfrac<0.99)isGood=true;
+        
+    }
+    return isGood;
 }
 
 // ------------ method called once each job just before starting event loop  ------------

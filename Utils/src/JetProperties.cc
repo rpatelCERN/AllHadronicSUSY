@@ -224,10 +224,10 @@ JetProperties::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 			CorrFactor->push_back(jcorr);
 			int isG=GoodJets(i, Jets);
 			isGood->push_back(isG);
-            if(isG==1 && goodcount<3){
+            if(isG==1 && goodcount<3 && Jets->at(i).pt()>30){ //make this pt cut configurable
                 float dphi=std::abs(reco::deltaPhi(Jets->at(i).phi(),metLorentz.phi()));
                 float dT=DeltaT(i, Jets);
-		std::cout<<"Delta Phi N "<<dphi/asin(dT/metLorentz.pt())<<std::endl;
+//		std::cout<<"Delta Phi N "<<dphi/asin(dT/metLorentz.pt())<<std::endl;
                 dpnhat[goodcount]=dphi/asin(dT/metLorentz.pt());
                 ++goodcount;
             }
@@ -316,7 +316,7 @@ JetProperties::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 bool JetProperties::GoodJets(unsigned int i, edm::Handle< edm::View<pat::Jet> > Jets ){
     bool isGood=false;
     if( Jets.isValid() ) {
-        float pt=Jets->at(i).pt();
+     //   float pt=Jets->at(i).pt();
         float eta=Jets->at(i).eta();
         float neufrac=Jets->at(i).neutralHadronEnergyFraction();//gives raw energy in the denominator
         float phofrac=Jets->at(i).neutralEmEnergyFraction();//gives raw energy in the denominator
@@ -325,7 +325,7 @@ bool JetProperties::GoodJets(unsigned int i, edm::Handle< edm::View<pat::Jet> > 
 
        // int nconstit=Jets->at(i).getPFConstituents().size();
         int chgmulti=Jets->at(i).chargedHadronMultiplicity();
-        if(pt>50 && fabs(eta)<2.4 && neufrac<0.99 && phofrac<0.99 &&chgmulti>0 && chgfrac>0 && chgEMfrac<0.99)isGood=true;
+        if( fabs(eta)<2.4 && neufrac<0.99 && phofrac<0.99 &&chgmulti>0 && chgfrac>0 && chgEMfrac<0.99)isGood=true;
         
     }
     return isGood;

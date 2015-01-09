@@ -53,6 +53,8 @@ private:
 	virtual void endRun(edm::Run&, edm::EventSetup const&);
 	virtual void beginLuminosityBlock(edm::LuminosityBlock&, edm::EventSetup const&);
 	virtual void endLuminosityBlock(edm::LuminosityBlock&, edm::EventSetup const&);
+    bool GoodJets(unsigned int i, edm::Handle< edm::View<pat::Jet> > Jets );
+
 	edm::InputTag JetTag_;
 	
 	
@@ -123,6 +125,8 @@ HTDouble::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 	if( Jets.isValid() ) {
 		for(unsigned int i=0; i<Jets->size();i++)
 		{
+            bool isGood=GoodJets(i, Jets);
+            if(!isGood)continue;
 			if(Jets->at(i).genJet()!=0)
 			{
 			++genMatches;
@@ -155,6 +159,24 @@ HTDouble::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 	         std::auto_ptr<int> htp4(new int(genMatches));
         iEvent.put(htp4, "genJetMatch");
 
+}
+
+bool HTDouble::GoodJets(unsigned int i, edm::Handle< edm::View<pat::Jet> > Jets ){
+    bool isGood=false;
+    if( Jets.isValid() ) {
+        //   float pt=Jets->at(i).pt();
+        float eta=Jets->at(i).eta();
+        float neufrac=Jets->at(i).neutralHadronEnergyFraction();//gives raw energy in the denominator
+        float phofrac=Jets->at(i).neutralEmEnergyFraction();//gives raw energy in the denominator
+        float chgfrac=Jets->at(i).chargedHadronEnergyFraction();
+        float chgEMfrac=Jets->at(i).chargedEmEnergyFraction();
+        
+        // int nconstit=Jets->at(i).getPFConstituents().size();
+        int chgmulti=Jets->at(i).chargedHadronMultiplicity();
+        if( fabs(eta)<2.4 && neufrac<0.99 && phofrac<0.99 &&chgmulti>0 && chgfrac>0 && chgEMfrac<0.99)isGood=true;
+        
+    }
+    return isGood;
 }
 
 // ------------ method called once each job just before starting event loop  ------------
