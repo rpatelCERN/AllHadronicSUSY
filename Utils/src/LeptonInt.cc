@@ -127,23 +127,13 @@ LeptonInt::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 	iEvent.getByLabel(eleTag_, eleHandle);
 	if(eleHandle.isValid()){
 	  
-<<<<<<< HEAD
-	 //Electrons=eleHandle->size();
 
 	for(unsigned int e=0; e<eleHandle->size(); ++e){
 	  if(fabs(eleHandle->at(e).eta())>2.5 ||eleHandle->at(e).pt()<10)continue;
-	  //for(unsigned int i=0; i<eleHandle->at(e).electronIDs().size();++i)std::cout<<"ID "<<eleHandle->at(e).electronIDs()[i].first<<std::endl;
 	  if(eleHandle->at(e).electronID("cutBasedElectronID-CSA14-PU20bx25-V0-standalone-veto")>0.5)++Electrons;
 		}
 
-=======
-	  //Electrons=eleHandle->size();
-	for(unsigned int e=0; e<eleHandle->size(); ++e){
-	  if(fabs(eleHandle->at(e).eta())>2.5 ||eleHandle->at(e).pt()<10)continue;
-	  if(eleHandle->at(e).electronID("eidTight")>6)++Electrons;
 		}
->>>>>>> FETCH_HEAD
-	}
 	edm::Handle<edm::View<pat::Muon> > muonHandle;	
 	iEvent.getByLabel(muonTag_, muonHandle);
 	if(muonHandle.isValid()){

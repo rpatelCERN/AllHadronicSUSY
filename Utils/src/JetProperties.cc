@@ -228,25 +228,9 @@ JetProperties::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
             if(isG==1 && goodcount<3 && Jets->at(i).pt()>30){ //make this pt cut configurable
                 float dphi=std::abs(reco::deltaPhi(Jets->at(i).phi(),metLorentz.phi()));
                 float dT=DeltaT(i, Jets);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> FETCH_HEAD
 		if(dT/metLorentz.pt()>=1.0)dpnhat[goodcount]=dphi/(TMath::Pi()/2.0);
 		else dpnhat[goodcount]=dphi/asin(dT/metLorentz.pt());
 		
-//		if(dT<0.00001)std::cout<<"Delta T "<<dT<<std::endl;
-//		std::cout<<"Delta Phi N "<<dphi/asin(dT/metLorentz.pt())<<std::endl;
-//                if(asin(dT/metLorentz.pt()).isnan())std::cout<<"deltaT "<<dT<<std::endl;
-	
-	//	dpnhat[goodcount]=dphi/asin(dT/metLorentz.pt());
-<<<<<<< HEAD
-=======
-=======
-//		std::cout<<"Delta Phi N "<<dphi/asin(dT/metLorentz.pt())<<std::endl;
-                dpnhat[goodcount]=dphi/asin(dT/metLorentz.pt());
->>>>>>> FETCH_HEAD
->>>>>>> FETCH_HEAD
                 ++goodcount;
             }
 			jetArea->push_back( Jets->at(i).jetArea() );
