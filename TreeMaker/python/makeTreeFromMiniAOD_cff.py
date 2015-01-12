@@ -15,7 +15,9 @@ MC=False,
 debug = False,
 QCD=False,
 LostLepton=False,
-numProcessedEvt=1000):
+numProcessedEvt=1000,
+skip=0
+):
 
     process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
     process.GlobalTag.globaltag = Global_Tag
@@ -39,27 +41,33 @@ numProcessedEvt=1000):
         )
     process.source = cms.Source("PoolSource",
 
-        fileNames = cms.untracked.vstring(testFileName)
+        fileNames = cms.untracked.vstring(
+'/store/mc/Phys14DR/SMS-T1tttt_2J_mGl-1500_mLSP-100_Tune4C_13TeV-madgraph-tauola/MINIAODSIM/PU20bx25_tsg_PHYS14_25_V1-v1/10000/4836AA58-5A6B-E411-8865-20CF305B053E.root',
+'/store/mc/Phys14DR/SMS-T1tttt_2J_mGl-1500_mLSP-100_Tune4C_13TeV-madgraph-tauola/MINIAODSIM/PU20bx25_tsg_PHYS14_25_V1-v1/10000/829D372D-7F6B-E411-81B1-0025907B5048.root',
+'/store/mc/Phys14DR/SMS-T1tttt_2J_mGl-1500_mLSP-100_Tune4C_13TeV-madgraph-tauola/MINIAODSIM/PU20bx25_tsg_PHYS14_25_V1-v1/10000/C43D68C5-8D6B-E411-B030-0025907750A0.root'
+
+),
+	skipEvents=cms.untracked.uint32(skip),
  #       fileNames = cms.untracked.vstring(
  #		'file:/nfs/dust/cms/user/csander/LHE/workdir/simulation_test/T1qqqqHV/output_66.root'
 #		)
         )
         
-    hltPath=['HLT_PFHT350_PFMET100_v*','HLT_PFNoPUHT350_PFMET100_v*']
-    process.load('HLTrigger.HLTfilters.hltHighLevel_cfi')
-    process.hltHighLevel.HLTPaths = cms.vstring(hltPath)
-    process.hltHighLevel.andOr = cms.bool(True)
-    process.hltHighLevel.throw = cms.bool(False)
+    #hltPath=['HLT_PFHT350_PFMET100_v*','HLT_PFNoPUHT350_PFMET100_v*']
+    #process.load('HLTrigger.HLTfilters.hltHighLevel_cfi')
+    #process.hltHighLevel.HLTPaths = cms.vstring(hltPath)
+    #process.hltHighLevel.andOr = cms.bool(True)
+    #process.hltHighLevel.throw = cms.bool(False)
 
-    process.HLTSelection = cms.Sequence(
-        process.hltHighLevel
-        )
-    if MC:
-        print "Running on MC: removing HLT selection"
-        process.HLTSelection.remove(process.hltHighLevel)
-    elif not hltPath:
-        print "Empty list of HLT paths: removing HLT selection"
-        process.HLTSelection.remove(process.hltHighLevel)
+    #process.HLTSelection = cms.Sequence(
+     #   process.hltHighLevel
+      #  )
+   # if MC:
+    #    print "Running on MC: removing HLT selection"
+     #   process.HLTSelection.remove(process.hltHighLevel)
+    #elif not hltPath:
+     #   print "Empty list of HLT paths: removing HLT selection"
+      #  process.HLTSelection.remove(process.hltHighLevel)
     ## --- Output file -----------------------------------------------------
     process.TFileService = cms.Service(
         "TFileService",
@@ -75,7 +83,7 @@ numProcessedEvt=1000):
     max(0.,pfIsolationR04().sumNeutralHadronEt+
     pfIsolationR04().sumPhotonEt-
     0.50*pfIsolationR04().sumPUPt))/pt < 0.20 &&
-    (isPFMuon && (isGlobalMuon || isTrackerMuon) )'''))
+    (isPFMuon && (isGlobalMuon || isTrackerMuon))'''))
     process.selectedIDMuons = cms.EDFilter("CandPtrSelector", src = cms.InputTag("slimmedMuons"), cut = cms.string('''abs(eta)<2.5 && pt>10. &&
     (isPFMuon && (isGlobalMuon || isTrackerMuon) )'''))
     process.selectedIDIsoElectrons = cms.EDFilter("CandPtrSelector", src = cms.InputTag("slimmedElectrons"), cut = cms.string('''abs(eta)<2.5 && pt>10. &&
@@ -92,23 +100,23 @@ numProcessedEvt=1000):
     
        ## --- Setup of TreeMaker ----------------------------------------------
     FilterNames = cms.VInputTag()
-    FilterNames.append(cms.InputTag("HBHENoiseFilterRA2","HBHENoiseFilterResult","PAT"))
-    FilterNames.append(cms.InputTag("beamHaloFilter"))
-    FilterNames.append(cms.InputTag("eeNoiseFilter"))
-    FilterNames.append(cms.InputTag("trackingFailureFilter"))
-    FilterNames.append(cms.InputTag("inconsistentMuons"))
-    FilterNames.append(cms.InputTag("greedyMuons"))
-    FilterNames.append(cms.InputTag("ra2EcalTPFilter"))
-    FilterNames.append(cms.InputTag("ra2EcalBEFilter"))
-    FilterNames.append(cms.InputTag("hcalLaserEventFilter"))
-    FilterNames.append(cms.InputTag("ecalLaserCorrFilter"))
-    FilterNames.append(cms.InputTag("eeBadScFilter"))
-    FilterNames.append(cms.InputTag("PBNRFilter"))
-    FilterNames.append(cms.InputTag("HCALLaserEvtFilterList2012"))
-    FilterNames.append(cms.InputTag("manystripclus53X"))
-    FilterNames.append(cms.InputTag("toomanystripclus53X"))
-    FilterNames.append(cms.InputTag("logErrorTooManyClusters"))
-    FilterNames.append(cms.InputTag("RA2HONoiseFilter"))
+ #   FilterNames.append(cms.InputTag("HBHENoiseFilterRA2","HBHENoiseFilterResult","PAT"))
+ #   FilterNames.append(cms.InputTag("beamHaloFilter"))
+ #   FilterNames.append(cms.InputTag("eeNoiseFilter"))
+ #   FilterNames.append(cms.InputTag("trackingFailureFilter"))
+  #  FilterNames.append(cms.InputTag("inconsistentMuons"))
+ #   FilterNames.append(cms.InputTag("greedyMuons"))
+ #   FilterNames.append(cms.InputTag("ra2EcalTPFilter"))
+#    FilterNames.append(cms.InputTag("ra2EcalBEFilter"))
+#    FilterNames.append(cms.InputTag("hcalLaserEventFilter"))
+#    FilterNames.append(cms.InputTag("ecalLaserCorrFilter"))
+#    FilterNames.append(cms.InputTag("eeBadScFilter"))
+#    FilterNames.append(cms.InputTag("PBNRFilter"))
+#    FilterNames.append(cms.InputTag("HCALLaserEvtFilterList2012"))
+#    FilterNames.append(cms.InputTag("manystripclus53X"))
+#    FilterNames.append(cms.InputTag("toomanystripclus53X"))
+#    FilterNames.append(cms.InputTag("logErrorTooManyClusters"))
+#    FilterNames.append(cms.InputTag("RA2HONoiseFilter"))
     
     
     ## --- Setup WeightProducer -------------------------------------------
@@ -244,6 +252,8 @@ numProcessedEvt=1000):
     from AllHadronicSUSY.Utils.leptonint_cfi import leptonint
     process.Leptons = leptonint.clone(
     LeptonTag = cms.VInputTag(cms.InputTag('selectedIDIsoMuons'),cms.InputTag('selectedIDIsoElectrons')),
+    srcEle = cms.InputTag("slimmedElectrons"),
+    srcMuon = cms.InputTag("slimmedMuons"),
     )
     from AllHadronicSUSY.Utils.primaryverticies_cfi import primaryverticies
     process.NVtx = primaryverticies.clone(

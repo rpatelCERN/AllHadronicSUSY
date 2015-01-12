@@ -31,5 +31,5 @@ weightProducer = cms.EDProducer('WeightProducer',
    ##  1: for Fall11
    ##  2: Summer12 S7
    ##  3: Summer12 S10                                
-   PU = cms.int32(3)
+   PU = cms.int32(0)
 )

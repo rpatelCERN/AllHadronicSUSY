@@ -33,6 +33,8 @@
 #include "DataFormats/PatCandidates/interface/MET.h"
 #include "DataFormats/PatCandidates/interface/Electron.h"
 #include "DataFormats/PatCandidates/interface/Muon.h"
+#include "DataFormats/VertexReco/interface/Vertex.h"
+#include "DataFormats/VertexReco/interface/VertexFwd.h"
 //
 // class declaration
 //
@@ -53,7 +55,7 @@ private:
 	virtual void endRun(edm::Run&, edm::EventSetup const&);
 	virtual void beginLuminosityBlock(edm::LuminosityBlock&, edm::EventSetup const&);
 	virtual void endLuminosityBlock(edm::LuminosityBlock&, edm::EventSetup const&);
-	std::vector<edm::InputTag> leptonTag_; edm::InputTag eleTag_, muonTag_;
+	std::vector<edm::InputTag> leptonTag_; edm::InputTag eleTag_, muonTag_, PrimVtxTag_;
 	
 	
 	// ----------member data ---------------------------
@@ -76,6 +78,7 @@ LeptonInt::LeptonInt(const edm::ParameterSet& iConfig)
 	//register your produc
 	leptonTag_ 				= 	iConfig.getParameter< std::vector<edm::InputTag> >("LeptonTag");
 	eleTag_=iConfig.getParameter<edm::InputTag>("srcEle"); muonTag_=iConfig.getParameter<edm::InputTag>("srcMuon");
+	PrimVtxTag_=iConfig.getParameter<edm::InputTag>("srcPV");
 	produces<int>("Leptons");
 	produces<int>("Electrons");
 	produces<int>("Muons");
@@ -113,17 +116,37 @@ LeptonInt::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 	int Electrons=0;
 	int Muons=0;
 	using namespace edm;
+	edm::Handle<reco::VertexCollection> vtx_h;
+	iEvent.getByLabel(PrimVtxTag_, vtx_h);
+	//const reco::Vertex*vertex;
+	//if(vtx_h.isValid()){
+	  //  vertex=&vtx_h->front();
+	//} 	
+
 	edm::Handle<edm::View<pat::Electron> > eleHandle;
 	iEvent.getByLabel(eleTag_, eleHandle);
 	if(eleHandle.isValid()){
-	  Electrons=eleHandle->size();
-
+	  
+	  //Electrons=eleHandle->size();
+	for(unsigned int e=0; e<eleHandle->size(); ++e){
+	  if(fabs(eleHandle->at(e).eta())>2.5 ||eleHandle->at(e).pt()<10)continue;
+	  if(eleHandle->at(e).electronID("eidTight")>6)++Electrons;
+		}
 	}
 	edm::Handle<edm::View<pat::Muon> > muonHandle;	
 	iEvent.getByLabel(muonTag_, muonHandle);
 	if(muonHandle.isValid()){
-	
-	  Muons=muonHandle->size();
+	  for(unsigned int m=0; m<muonHandle->size(); ++m){
+	  if(muonHandle->at(m).pt()<10 || fabs(muonHandle->at(m).eta())>2.5)continue;
+	  float ChgIso=muonHandle->at(m).pfIsolationR04().sumChargedHadronPt;
+	  float ChgPU=muonHandle->at(m).pfIsolationR04().sumPUPt;
+	  float NeuIso=muonHandle->at(m).pfIsolationR04().sumNeutralHadronEt+
+	  muonHandle->at(m).pfIsolationR04().sumPhotonEt;
+	  float dBIsoMu= (ChgIso+std::max(0., NeuIso-0.5*ChgPU))/muonHandle->at(m).pt();
+	 if(muonHandle->at(m).isTightMuon( vtx_h->at(0)) && dBIsoMu<0.2)++Muons;
+	  
+	}		
+	  //Muons=muonHandle->size();
         }
 
 	int Leptons=0;

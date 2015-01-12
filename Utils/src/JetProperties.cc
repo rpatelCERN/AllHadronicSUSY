@@ -32,7 +32,7 @@
 #include "DataFormats/PatCandidates/interface/Jet.h"
 #include "DataFormats/Candidate/interface/Candidate.h"
 #include "DataFormats/PatCandidates/interface/MET.h"
-
+#include "TMath.h"
 //
 // class declaration
 //
@@ -200,6 +200,7 @@ JetProperties::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
     if(MET.isValid() )metLorentz=MET->at(0).p4();
     unsigned int goodcount=0;
     double dpnhat[3];
+    for(int i=0; i<3; ++i)dpnhat[i]=0;
     if( Jets.isValid() ) {
 		for(unsigned int i=0; i<Jets->size();i++)
 		{
@@ -224,11 +225,17 @@ JetProperties::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 			CorrFactor->push_back(jcorr);
 			int isG=GoodJets(i, Jets);
 			isGood->push_back(isG);
-            if(isG==1 && goodcount<3){
+            if(isG==1 && goodcount<3 && Jets->at(i).pt()>30){ //make this pt cut configurable
                 float dphi=std::abs(reco::deltaPhi(Jets->at(i).phi(),metLorentz.phi()));
                 float dT=DeltaT(i, Jets);
-		std::cout<<"Delta Phi N "<<dphi/asin(dT/metLorentz.pt())<<std::endl;
-                dpnhat[goodcount]=dphi/asin(dT/metLorentz.pt());
+		if(dT/metLorentz.pt()>=1.0)dpnhat[goodcount]=dphi/(TMath::Pi()/2.0);
+		else dpnhat[goodcount]=dphi/asin(dT/metLorentz.pt());
+		
+//		if(dT<0.00001)std::cout<<"Delta T "<<dT<<std::endl;
+//		std::cout<<"Delta Phi N "<<dphi/asin(dT/metLorentz.pt())<<std::endl;
+//                if(asin(dT/metLorentz.pt()).isnan())std::cout<<"deltaT "<<dT<<std::endl;
+	
+	//	dpnhat[goodcount]=dphi/asin(dT/metLorentz.pt());
                 ++goodcount;
             }
 			jetArea->push_back( Jets->at(i).jetArea() );
@@ -316,7 +323,7 @@ JetProperties::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 bool JetProperties::GoodJets(unsigned int i, edm::Handle< edm::View<pat::Jet> > Jets ){
     bool isGood=false;
     if( Jets.isValid() ) {
-        float pt=Jets->at(i).pt();
+     //   float pt=Jets->at(i).pt();
         float eta=Jets->at(i).eta();
         float neufrac=Jets->at(i).neutralHadronEnergyFraction();//gives raw energy in the denominator
         float phofrac=Jets->at(i).neutralEmEnergyFraction();//gives raw energy in the denominator
@@ -325,7 +332,7 @@ bool JetProperties::GoodJets(unsigned int i, edm::Handle< edm::View<pat::Jet> > 
 
        // int nconstit=Jets->at(i).getPFConstituents().size();
         int chgmulti=Jets->at(i).chargedHadronMultiplicity();
-        if(pt>50 && fabs(eta)<2.4 && neufrac<0.99 && phofrac<0.99 &&chgmulti>0 && chgfrac>0 && chgEMfrac<0.99)isGood=true;
+        if( fabs(eta)<2.4 && neufrac<0.99 && phofrac<0.99 &&chgmulti>0 && chgfrac>0 && chgEMfrac<0.99)isGood=true;
         
     }
     return isGood;
@@ -340,6 +347,7 @@ double JetProperties::DeltaT(unsigned int i, edm::Handle< edm::View<pat::Jet> > 
         for(unsigned int j=0; j<Jets->size(); ++j){
             if(j==i)continue;
             if(!GoodJets(j,Jets))continue;
+	    if(Jets->at(j).pt()<30)continue;
             sum=sum+(Jets->at(i).px()*Jets->at(j).py()-Jets->at(j).px()*Jets->at(i).py()) * (Jets->at(i).px()*Jets->at(j).py()-Jets->at(j).px()*Jets->at(i).py());
         }
         deltaT=jres*sqrt(sum)/Jets->at(i).pt();
