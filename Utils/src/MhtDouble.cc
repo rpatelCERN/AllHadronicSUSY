@@ -53,6 +53,7 @@ class MhtDouble : public edm::EDProducer {
       virtual void endRun(edm::Run&, edm::EventSetup const&);
       virtual void beginLuminosityBlock(edm::LuminosityBlock&, edm::EventSetup const&);
       virtual void endLuminosityBlock(edm::LuminosityBlock&, edm::EventSetup const&);
+    
 	    edm::InputTag JetTag_;
 
 
